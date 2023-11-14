@@ -1,0 +1,57 @@
+When to use Rag, fine tuning and prompt engineering?
+
+here's a good framework:
+    
+    ^    RAG                                     All of the methods
+    |   
+    |   prompt engineering                       Fine Tuning
+    |
+    context                             how the model needs to act ----->
+(what the model needs to know)
+
+
+PROMPT ENGINEERING:
+start with:                                                 Extend to:                                                       
+- Clear instructions                                    Provide reference tools
+- Split complex tasks into simpler subtasks             Use external tools
+- Give GPTs time to "think"
+- Test changes sytematically (LLMops)
+
+Not good for:
+- Introducing new info
+- Reliably replicating a complex style (eg: programming)
+- Minimizing tokens
+
+EXAMPLE:
+- Add a System query
+- time to think(like how to approach the problem)
+- clearly define each step of the prompt
+- Few shot examples
+
+RAG:
+- to give relevant knowledge so model can use
+
+What works:                       Doesnt work:
+- 45%: cosine similarity
+
+- 65% CHUNKING SIZES                Hypothetical document embedding (HyDE) generating a fake answer and using that embedding
+                                    FT embeddings (too slow)
+
+- 85%  RERANKING(CROSS ENCODER)
+        CLASSIFICATION
+    (WHICH DOMAIN IT IS AND BASED ON THAT PASS EXTRA METADATA)
+
+-98%    Prompt engineering
+        Tool use (go and extract data from sql)
+        Query expansion          
+
+SEE: RAGAS score.
+following params are used for ragas score-
+FAITHFULNESS(How factully acurate is the generated answer), ANSWER RELEVANCY(How accurate is answer to question)
+Context precision (signal to noise of retrieved content), Context recall (can it retrieve all relevant info)
+
+FINE TUNING:
+Good for:                                                                   Not good:
+- Emphasising knowledge that exists                                Adding new knowledge to base model
+- Customizing the structure and time of response                   quickly iterating on a new use-case
+- Teaching a model complex instructions
