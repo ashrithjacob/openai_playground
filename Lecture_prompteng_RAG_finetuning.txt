@@ -55,3 +55,10 @@ Good for:                                                                   Not 
 - Emphasising knowledge that exists                                Adding new knowledge to base model
 - Customizing the structure and time of response                   quickly iterating on a new use-case
 - Teaching a model complex instructions
+
+Good practices:
+- Try fine tuning for 200-300 sentences and see if model is moving in the right direction
+- Establish baseline(know what metrics have to be improved)
+- Data quality >>> Data quantity
+
+Fine tune model to understand complex instructions so we can free up context window in RAG
